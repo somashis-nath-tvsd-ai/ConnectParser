@@ -1,0 +1,25 @@
+{
+  "name": "configuration",
+  "properties": [
+    {
+      "BasicCalculation": {
+        "class type": "Calculation",
+        "parameter": ["formula","suffix"],
+        "className": "org.com.service.engine.calculate.BasicCalculation"
+      },
+      "RangeCalculation": {
+        "class type": "Calculation",
+        "parameter": ["rangeType","outerMap"],
+        "className": "org.com.service.engine.calculate.RangeCalculation"
+      },
+      "HexadecimalToInteger": {
+        "class type": "Conversion",
+        "className": "org.com.service.engine.conversion.HexadecimalToInteger"
+      },
+      "HexadecimalToBinary": {
+        "class type": "Conversion",
+        "className": "org.com.service.engine.conversion.HexadecimalToBinary"
+      }
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+[{
+  "uniqueId": "vehicle_data_001",
+  "name": "Speedometer Data - 1 /NTORQ",
+  "description": "JSON structure for vehicle telemetry data including metrics such as speed, odometer value, fuel level, and more.",
+  "data": [
+    {
+      "start_byte": {
+        "index": "1",
+        "prefix": "none",
+        "conversion": "none",
+        "calculation": "none",
+        "suffix": "none"
+      },
+      "data_id": {
+        "index": "2",
+        "prefix": "none",
+        "conversion": "string",
+        "calculation": "none",
+        "suffix": "none"
+      },
+      "speed_value": {
+        "index": "3",
+        "prefix": "",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "none",
+        "suffix": " kmph",
+        "min": "0",
+        "max": "255"
+      },
+      "odometer_value": {
+        "index": "4,5,6",
+        "prefix": "none",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "none",
+        "suffix": "none",
+        "min": "0",
+        "max": "999999"
+      },
+      "fuel_level": {
+        "index": "7",
+        "prefix": "none",
+        "conversion": "none",
+        "calculation": "RangeCalculation",
+        "rangeType": "2bitRange",
+        "range": [
+          {
+            "name": "MIL ",
+            "type": "0x,firstBit",
+            "values": {
+              "0": "OFF",
+              "1": "ON"
+            }
+          },
+          {
+            "name": "Fuel",
+            "type": "0x,lastBit",
+            "values": {
+              "0": " 0 bar",
+              "1": " 1 bar",
+              "2": " 2 bar",
+              "3": " 3 bar",
+              "4": " 4 bar",
+              "5": " 5 bar",
+              "6": " 6 bar",
+              "7": " 7 bar",
+              "8": " 8 bar"
+            }
+          }
+        ],
+        "suffix": ""
+      },
+      "average_speed": {
+        "index": "8",
+        "prefix": "",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "none",
+        "suffix": " kmph",
+        "min": "0",
+        "max": "255"
+      },
+      "economy_power_status": {
+        "index": "9",
+        "prefix": "economy status",
+        "conversion": "mode",
+        "calculation": "RangeCalculation",
+        "rangeType": "2bitRange",
+        "range": [
+          {
+            "name": "economy status ",
+            "type": "0x,lastBit",
+            "values": {
+              "0": "OFF",
+              "1": "ON"
+            }
+          }
+        ],
+        "suffix": ""
+      },
+      "top_speed": {
+        "index": "10",
+        "prefix": "",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "value",
+        "suffix": " kmph",
+        "min": "0",
+        "max": "255"
+      },
+      "throttle_position_value": {
+        "index": "11",
+        "prefix": "Throttle position value-",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "BasicCalculation",
+        "formula": "*,0.5",
+        "suffix": "%",
+        "min": "0",
+        "max": "127.50"
+      },
+      "current_backlight_illumination": {
+        "index": "12",
+        "prefix": "",
+        "conversion": "none",
+        "calculation": "RangeCalculation",
+        "rangeType": "2bitRange",
+        "range": [
+          {
+            "name": "Backlight Illumination",
+            "type": "0x,firstBit",
+            "values": {
+              "5": "30.25%",
+              "6": "20%",
+              "7": "40%",
+              "8": "60%",
+              "9": "80%",
+              "A": "100%"
+            }
+          },
+          {
+            "name": "Speedo Mode ",
+            "type": "0x,lastBit",
+            "values": {
+              "0": "STREET MODE",
+              "1": "SPORT MODE",
+              "2": "BT PAIR MODE",
+              "3": "RIDE STATS LAST LAP",
+              "4": "RIDE STATS BEST"
+            }
+          }
+        ],
+        "suffix": ""
+      },
+      "location_tag_switch": {
+        "index": "13",
+        "prefix": "",
+        "conversion": "none",
+        "calculation": "RangeCalculation",
+        "rangeType": "2bitRange",
+        "range": [
+          {
+            "name": "input status ",
+            "type": "0x,firstBit",
+            "values": {
+              "0": "location inactive",
+              "8": "location active",
+              "2": "ISS Switch ON",
+              "3": "ISS Switch OFF"
+            }
+          },
+          {
+            "name": "SW ",
+            "type": "0x,lastBit",
+            "values": {
+              "0": "no SW pressed",
+              "1": "SW1 pressed to attend call",
+              "2": "SW2 pressed to disconnect call",
+              "3": "SW1 & SW2 pressed",
+              "4": "external switch 4",
+              "5": "external switch 5",
+              "6": "external switch 6",
+              "7": "external switch 7",
+              "8": "external switch 8",
+              "9": "external switch 9",
+              "A": "external switch 10"
+            }
+          }
+        ],
+        "suffix": ""
+      },
+      "zero_to_sixty_kmph_time": {
+        "index": "14",
+        "prefix": "",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "BasicCalculation",
+        "formula": "/,0.1",
+        "suffix": " s",
+        "min": "0.0",
+        "max": "25.5"
+      },
+      "trip_f_meter": {
+        "index": "15,16,17",
+        "prefix": "",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "none",
+        "suffix": " km",
+        "min": "0",
+        "max": "99999"
+      },
+      "engine_rpm": {
+        "index": "18,19",
+        "prefix": "Engine rpm -",
+        "conversion": "HexadecimalToInteger",
+        "calculation": "none",
+        "suffix": " rpm",
+        "min": "0",
+        "max": "18000"
+      },
+      "end_byte": {
+        "index": "20",
+        "prefix": "",
+        "conversion": "none",
+        "calculation": "none",
+        "suffix": ""
+      }
+    }
+  ]
+},
+  {
+    "uniqueId": "vehicle_data_002",
+    "name": "Speedometer Data - 2",
+    "description": "JSON structure for vehicle telemetry data including metrics such as speed, odometer value, fuel level, and more.",
+    "data": [
+      {
+        "start_byte": {
+          "index": "1",
+          "prefix": "none",
+          "conversion": "none",
+          "calculation": "none",
+          "suffix": "none"
+        },
+        "data_id": {
+          "index": "2",
+          "prefix": "none",
+          "conversion": "string",
+          "calculation": "none",
+          "suffix": "none"
+        },
+        "Fuel sensor failure": {
+          "index": "3",
+          "prefix": "",
+          "conversion": "none",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Fuel",
+              "type": "0x,lastBit",
+              "values": {
+                "0": "normal",
+                "1": "failed"
+              }
+            }
+          ],
+          "suffix": "none"
+        },
+        "vehicle_state-1": {
+          "index": "4",
+          "prefix": "none",
+          "conversion": "HexadecimalToBinary",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Fuel",
+              "type": "0b,binary",
+              "values": {
+                "1": "Clutch Switch",
+                "2": "Brake Switch",
+                "3": "Engine Stop Command",
+                "4": "ISG Monitoring State",
+                "5": "Electric start switch",
+                "6": "Roll Over",
+                "7": "Side Stand"
+              }
+            }
+          ],
+          "suffix": "none"
+        },
+        "Service reminder": {
+          "index": "5",
+          "prefix": "",
+          "conversion": "HexadecimalToInteger",
+          "calculation": "none",
+          "suffix": " service completed",
+          "min": "0",
+          "max": "99"
+        },
+        "vehicle_state-2": {
+          "index": "6",
+          "prefix": "none",
+          "conversion": "HexadecimalToBinary",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Fuel",
+              "type": "0b,binary",
+              "values": {
+                "1": "Kill Switch",
+                "2": "MIL blink entry condition",
+                "3": "ISG MIL blink entry condition",
+                "4": "ISS start Bit",
+                "5": "Display next MIL blink code",
+                "6": "ES",
+                "7": "Display next ISG MIL blink code",
+                "8": "ISS stop bit"
+              }
+            }
+          ],
+          "suffix": "none"
+        },
+        "speedo SW version": {
+          "index": "8",
+          "prefix": "v",
+          "conversion": "HexadecimalToInteger",
+          "calculation": "none",
+          "suffix": "none",
+          "min": "0",
+          "max": "99"
+        },
+        "MIL Blink Code": {
+          "index": "9",
+          "prefix": "brake switch",
+          "conversion": "HexadecimalToInteger",
+          "calculation": "none",
+          "suffix": "",
+          "min": "0",
+          "max": "255"
+        },
+        "Vehicle Model": {
+          "index": "10",
+          "prefix": "It represents that speedometer is fitted onto",
+          "conversion": "none",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "vehicle",
+              "type": "0x,bothBit",
+              "values": {
+                "0A": "R&D",
+                "A1": "NTORQ",
+                "A2": "EV",
+                "B3": "HEV",
+                "C4": "Akula"
+              }
+            }
+          ],
+          "suffix": "vehicle"
+        },
+        "Vehicle Diagnostics": {
+          "index": "11",
+          "prefix": "none",
+          "conversion": "HexadecimalToBinary",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Fuel",
+              "type": "0b,binary",
+              "values": {
+                "1": "TPS",
+                "2": "Roll over sensor",
+                "3": "Engine temp sensor",
+                "4": "Vehicle speed sensor",
+                "5": "Intake air take sensor",
+                "6": "MIL",
+                "7": "ISG"
+              }
+            }
+          ],
+          "suffix": "none"
+        },
+        "ISG mal Blink code": {
+          "index": "12",
+          "prefix": "none",
+          "conversion": "none",
+          "calculation": "none",
+          "suffix": "none"
+        },
+        "Turn signal lamp status- PROVISION": {
+          "index": "13",
+          "prefix": "",
+          "conversion": "none",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Provision",
+              "type": "0x,lastBit",
+              "values": {
+                "0": "OFF",
+                "1": "Turn Right",
+                "2": "Turn Left"
+              }
+            }
+          ],
+          "suffix": "status"
+        },
+        "Engine temperature (Offset - 0x28)": {
+          "index": "14",
+          "prefix": "",
+          "conversion": "HexadecimalToInteger",
+          "calculation": "none",
+          "suffix": " deg",
+          "min": "0",
+          "max": "255"
+        },
+        "Capture Screenshot": {
+          "index": "18",
+          "prefix": "",
+          "conversion": "none",
+          "calculation": "RangeCalculation",
+          "rangeType": "2bitRange",
+          "range": [
+            {
+              "name": "Screenshot",
+              "type": "0x,lastBit",
+              "values": {
+                "0": "Normal",
+                "1": "Capture"
+              }
+            }
+          ],
+          "suffix": "none"
+        },
+        "end_byte": {
+          "index": "20",
+          "prefix": "",
+          "conversion": "none",
+          "calculation": "none",
+          "suffix": ""
+        }
+      }
+    ]
+  }]
